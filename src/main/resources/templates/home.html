@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>COVID-19 TRACER</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="http://img.freeflagicons.com/thumb/sphere_icon/nepal/nepal_640.png">
+    <style>
+        p{
+
+            font-weight:bold;
+
+        }
+
+        table{
+            font-weight:500;
+            font-size:14px;
+        }
+        h4{
+             font-weight:500;
+             text-transform: uppercase;
+        }
+        .info
+        {
+            float:right;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+    <h4>Global COVID-19 Case Report</h4>
+    <div class="info">
+        <a class="tooltipped" data-tooltip="Original Data Source" href="https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv" target="_blank">
+            <i class="medium material-icons">info</i>
+        </a>
+    </div>
+    <p>Total Reported Cases</p>
+    <blockquote>
+        <h3 th:text="${totalReportedCase}"></h3>
+    </blockquote>
+    <br>
+    <p>Total New Cases Reported Since Previous Day</p>
+    <blockquote>
+        <h3 th:text="${newCasesFound}"></h3>
+    </blockquote>
+
+
+    <table class="striped highlight">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total Cases Reported [Till Today] </th>
+            <th>Changes [Last Day] </th>
+        </tr>
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.state}"></td>
+            <td th:text="${locationStat.country}"></td>
+            <td th:text="${locationStat.latestTotalCases}">0</td>
+            <td th:text="${locationStat.differenceFromPreviousDay}">0</td>
+        </tr>
+    </table>
+</div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(elems);
+  });
+</script>
+</body>
+
+</html>
