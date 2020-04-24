@@ -43,8 +43,6 @@ public class CoronaDataServices {
 
         Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvReader);
 
-
-
         for (CSVRecord record : records) {
             LocationStats locationStats = new LocationStats();
             locationStats.setState(record.get("Province/State"));
