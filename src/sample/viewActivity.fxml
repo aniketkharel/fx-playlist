@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="471.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.controller.ViewController">
+   <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="605.0"
+          text="ALL YOUR ACTIVITIES ARE RETRIEVED AS JSON DOCUMENTS." underline="true">
+      <font>
+         <Font name="System Bold" size="12.0"/>
+      </font>
+   </Label>
+   <TextArea fx:id="txtViewDescription" prefHeight="528.0" prefWidth="831.0" wrapText="true" VBox.vgrow="ALWAYS"/>
+</VBox>
