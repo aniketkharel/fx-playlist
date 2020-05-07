@@ -10,7 +10,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://F:/mongo-java-driver-3.12.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../Softwares/mongo-java-driver-3.12.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,14 +19,17 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="file://F:/javafx-sdk/javafx-sdk-14.0.1/lib" />
+          <root url="file://$MODULE_DIR$/../../../Softwares/javafx-sdk-11.0.2/lib" />
         </CLASSES>
         <JAVADOC />
+        <NATIVE>
+          <root url="file://$MODULE_DIR$/../../../Softwares/javafx-sdk-11.0.2/lib" />
+        </NATIVE>
         <SOURCES>
-          <root url="file://F:/javafx-sdk/javafx-sdk-14.0.1/lib" />
+          <root url="file://$MODULE_DIR$/../../../Softwares/javafx-sdk-11.0.2/lib" />
         </SOURCES>
-        <jarDirectory url="file://F:/javafx-sdk/javafx-sdk-14.0.1/lib" recursive="false" />
-        <jarDirectory url="file://F:/javafx-sdk/javafx-sdk-14.0.1/lib" recursive="false" type="SOURCES" />
+        <jarDirectory url="file://$MODULE_DIR$/../../../Softwares/javafx-sdk-11.0.2/lib" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../../Softwares/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>

@@ -1,10 +1,6 @@
 package sample.utils;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCursor;
+import com.mongodb.client.*;
 import javafx.scene.control.Alert;
 import javafx.stage.StageStyle;
 import org.bson.Document;
