@@ -1,6 +1,12 @@
 package sample.utils;
 
-import com.mongodb.client.*;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCursor;
+import javafx.scene.control.Alert;
+import javafx.stage.StageStyle;
 import org.bson.Document;
 import sample.config.DatabaseConfig;
 import sample.model.ActivitiesModel;
@@ -11,16 +17,29 @@ public class DatabaseUtils {
 
     private ArrayList<String> contentList;
 
-    public MongoDatabase getMongoDatabase(){
+
+    Alert alert = new Alert(Alert.AlertType.WARNING);
+
+
+    public MongoDatabase getMongoDatabase() {
         MongoClient mongoClient = MongoClients.create(DatabaseConfig.MONGO_URL_REMOTE);
         return mongoClient.getDatabase("test");
     }
-    public void insertDocument(ActivitiesModel activitiesModel){
+
+    public void insertDocument(ActivitiesModel activitiesModel) {
+        alert.setTitle("saving activity...");
+        alert.initStyle(StageStyle.UNIFIED);
+        alert.show();
         MongoCollection<Document> collection = getMongoDatabase().getCollection("activities");
-        Document activityDocument = new Document("timeStamp",activitiesModel.getTimeStamp()).append("content",activitiesModel.getDescription()).append("username",activitiesModel.getUsername());
+        Document activityDocument = new Document("timeStamp", activitiesModel.getTimeStamp()).append("content", activitiesModel.getDescription()).append("username", activitiesModel.getUsername());
         collection.insertOne(activityDocument);
+        alert.close();
     }
-    public ArrayList<String> getAllDocuments(){
+
+    public ArrayList<String> getAllDocuments() {
+        alert.setTitle("Loading...");
+        alert.initStyle(StageStyle.UNIFIED);
+        alert.show();
         MongoCollection<Document> collection = getMongoDatabase().getCollection("activities");
         MongoCursor<Document> cursor = collection.find().iterator();
         contentList = new ArrayList<>();
@@ -30,6 +49,7 @@ public class DatabaseUtils {
             }
         } finally {
             cursor.close();
+            alert.close();
         }
         return contentList;
     }

@@ -18,7 +18,7 @@ public class Main extends Application {
         scene = new Scene(loadFXML("Main"));
         stage.setScene(scene);
         stage.setTitle("activitiesTracker");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("at.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("at.ico")));
         stage.setIconified(false);
         stage.show();
     }
